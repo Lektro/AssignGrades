@@ -9,6 +9,8 @@ public class ScoreTracker {
         ScoreTracker st = new ScoreTracker();
         st.getUserInput();
         st.setValuesToArray();
+        System.out.println("The highest score found: " +st.findMaxPoints(st.scoreValues));
+
     }
 
     private void getUserInput() {
@@ -30,8 +32,12 @@ public class ScoreTracker {
         int [] array = new int[numberOfStudents];
         int size = array.length;
         for (int i = 0; i < size; i++) {
-           array[i] = Integer.parseInt((scoreValues[i]));
+            array[i] = Integer.parseInt((scoreValues[i]));
         }
         System.out.println(Arrays.toString(array));
+    }
+    private int findMaxPoints(String[] points) {
+        Arrays.sort(points);
+        return Integer.parseInt(points[points.length - 1]);
     }
 }
